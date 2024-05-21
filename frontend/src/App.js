@@ -1,6 +1,6 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, { useContext } from "react";
 
-import './styles/App.css';
+import "./styles/App.css";
 
 import PageContext from "./context/PageProvider";
 
@@ -11,29 +11,22 @@ import Projects from "./pages/Projects";
 import Contacts from "./pages/Contacts";
 
 function App() {
-  const { homePage, setHomePage, contactsPage, setContactsPage, projectsPage, setProjectsPage } = useContext(PageContext);
-  useEffect(() => console.log(homePage), [typeof homePage]);
-  useEffect(() => console.log(projectsPage), [typeof projectsPage]);
-  useEffect(() => console.log(contactsPage), [typeof contactsPage]);
+  const { currentPage } = useContext(PageContext);
   return (
-    <div><Header/>
+    <div>
+      <Header />
       <div className="App">
-        
-        <Home/>
-        { homePage ? ( 
-          <Home setHomePage={setHomePage}/>
-        ) : projectsPage ? (
-          <Projects setProjectsPage={setProjectsPage}/>
-        ) : contactsPage ? (
-          <Contacts setContactsPage={setContactsPage} />
-        ) :(<Home/>)
-        };
-      
-        
-      </div> 
+        {currentPage === "projects" ? (
+          <Projects />
+        ) : currentPage === "contacts" ? (
+          <Contacts />
+        ) : (
+          <Home />
+        )}
+        ;
+      </div>
     </div>
   );
 }
 
 export default App;
-

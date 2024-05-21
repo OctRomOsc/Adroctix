@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import React, {useContext} from 'react'
 
+import PageContext from '../context/PageProvider';
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -10,7 +11,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 
 //import "./styles/Header.css";
 
-function  Header({ setProjectsPage }) {
+function  Header() {
+    const { setCurrentPage } = useContext(PageContext);
   return (
     <AppBar position="sticky">
             <Toolbar>
@@ -38,9 +40,9 @@ function  Header({ setProjectsPage }) {
                 >
                     Adroctix
                 </Typography>
-                <Button color="inherit"  > Home </Button>
-                <Button color="inherit" onClick={ () => setProjectsPage(true) } > Projects </Button>
-                <Button color="inherit"  > Contact </Button>
+                <Button color="inherit" onClick={ () => setCurrentPage("") } > Home </Button>
+                <Button color="inherit" onClick={ () => setCurrentPage("projects") } > Projects </Button>
+                <Button color="inherit" onClick={ () => setCurrentPage("contacts") } > Contact </Button>
             </Toolbar>
         </AppBar>
   );

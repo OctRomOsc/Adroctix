@@ -3,12 +3,10 @@ import { createContext, useState } from "react";
 const PageContext = createContext({})
 
 export const PageProvider = ({children}) => {
-    const [ homepage, setHomePage ] = useState();
-    const [ contactspage, setContactsPage ] = useState(false);
-    const [ projectspage, setProjectsPage ] = useState(false);
+    const [ currentPage, setCurrentPage ] = useState('');
    
     return (
-        <PageContext.Provider value={{homepage, setHomePage, contactspage, setContactsPage, projectspage, setProjectsPage}}>
+        <PageContext.Provider value={{currentPage, setCurrentPage}}>
             {children}
         </PageContext.Provider>
     )
