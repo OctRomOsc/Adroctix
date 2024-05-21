@@ -7,10 +7,13 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 
+import MenuItems from '../items/MenuItems';
+
 
 //import "./styles/Header.css";
 
 function  Header({ setProjectsPage }) {
+  const [clicked,setClicked] = useState(true);
   return (
     <AppBar position="sticky">
             <Toolbar>
@@ -38,12 +41,22 @@ function  Header({ setProjectsPage }) {
                 >
                     Adroctix
                 </Typography>
-                <Button color="inherit"  > Home </Button>
-                <Button color="inherit" onClick={ () => setProjectsPage(true) } > Projects </Button>
-                <Button color="inherit"  > Contact </Button>
+                <ul className={clicked ? 'Navbar__list' : 'Navbar__listMobile'}>
+                {MenuItems.map((item)=>{
+                        return(
+                        <Button>
+                            <li key={item.id}><a className={clicked ? item.cName : 'Navbar__listMobile__item'} href={item.url}>{item.label}</a></li>
+                        </Button>
+                        )
+                    })}
+                </ul>
+                
             </Toolbar>
         </AppBar>
   );
 }
 
 export default Header;
+/*<Button color="inherit"  > Home </Button>
+                <Button color="inherit" onClick={ () => setProjectsPage(true) } > Projects </Button>
+                <Button color="inherit"  > Contact </Button>*/
