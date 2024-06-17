@@ -1,0 +1,31 @@
+{
+    "projects": [
+      {
+        "id": 1,
+        "title": "EcoGoldProduction",
+        "content": "Web App",
+        "languages": "React frontend, Node.js (Express, MongoDB) backend",
+        "gitUrl": "",
+        "url": "",
+        "image": ""
+      },
+      {
+        "id": 2,
+        "title": "CP Athletics",
+        "content": "Website Design",
+        "languages": "Wix",
+        "gitUrl": "",
+        "url": "",
+        "image": ""
+      },
+      {
+        "id": 3,
+        "title": "",
+        "content": "Website",
+        "languages": "Vanilla JS/CSS/HTML frontend, Node.js (Express, SQLite) backend",
+        "gitUrl": "",
+        "url": "",
+        "image": ""
+      }
+    ]
+  }
